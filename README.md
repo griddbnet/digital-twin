@@ -6,14 +6,14 @@ Install and start GridDB, GridDB WebAPI, and NodeJS/NPM v18+ per their respectiv
 # Setup and Start Kafka
 
 - Download and untar Kafka 2.12-3.2.0.
-- Fetch griddb-kafka-connect from Github and build per it's instructions copying the built JAR to /path/to/kafka/lib
+- Fetch griddb-kafka-connect from Github and build per it's instructions copying the built JAR to /path/to/kafka/libs
 - Copy the configuration files in config/ to /path/to/kakfa/config/
 - Start zookeeper and the kafka-server:
 
 ```
 cd /path/to/kafka
-./bin/zookeeper-server-start.sh -daemon config/zookeeper.config
-./bin/kafka-server-start.sh -daemon config/server.conf
+./bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+./bin/kafka-server-start.sh -daemon config/server.properties
 ```  
 
 - In a sperate terminal, start the GridDB Kafka Connector
