@@ -46,13 +46,13 @@ pip3 install kafka-python
 In seperate terminals, start the twin first:
 
 ```
-./twin.py
+python3 ./twin.py
 ```
 
 And then the actual:
 
 ```
-./actual.py
+python3 ./actual.py
 ```
 
 To ensure correct operation, the twin and actual should display console messages of "Heating tank", "Heating flow", or "Cooling" while the terminal that is running the GridDB Kafka Connector should be writing messages to the console such as "Wrote N records to ..."
