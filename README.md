@@ -6,8 +6,9 @@ Install and start GridDB, GridDB WebAPI, and NodeJS/NPM v18+ per their respectiv
 # Setup and Start Kafka
 
 - Download and untar Kafka 2.12-3.2.0.
-- Fetch griddb-kafka-connect from Github and build per it's instructions copying the built JAR to /path/to/kafka/libs
-- Copy the configuration files in digital-twin/config/ to /path/to/kakfa/config/
+- Fetch griddb-kafka-connect from Github (https://github.com/griddb/griddb-kafka-connect) and build per its instructions copying the built JAR to /path/to/kafka/libs
+- Install griddb_python using the instructions here: https://docs.griddb.net/gettingstarted/python.html
+- Copy the configuration files in /path/to/digital-twin/config/ to /path/to/kakfa/config/
 - Start zookeeper and the kafka-server:
 
 ```
@@ -15,6 +16,13 @@ cd /path/to/kafka
 ./bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 ./bin/kafka-server-start.sh -daemon config/server.properties
 ```  
+
+- Create containers used by the GridDB Kafka Connector:
+
+```
+cd /path/to/digital-twin/src/
+python3 ./create-connectors.py
+```
 
 - In a sperate terminal, start the GridDB Kafka Connector
 ```
@@ -48,12 +56,14 @@ pip3 install kafka-python
 In seperate terminals, start the twin first:
 
 ```
+cd /path/to/digital-twin/src
 python3 ./twin.py
 ```
 
 And then the actual:
 
 ```
+cd /path/to/digital-twin/src
 python3 ./actual.py
 ```
 
