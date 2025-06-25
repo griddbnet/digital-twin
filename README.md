@@ -7,7 +7,7 @@ Install and start GridDB, GridDB WebAPI, and NodeJS/NPM v18+ per their respectiv
 
 - Download and untar Kafka 2.12-3.2.0.
 - Fetch griddb-kafka-connect from Github and build per it's instructions copying the built JAR to /path/to/kafka/libs
-- Copy the configuration files in config/ to /path/to/kakfa/config/
+- Copy the configuration files in digital-twin/config/ to /path/to/kakfa/config/
 - Start zookeeper and the kafka-server:
 
 ```
@@ -19,6 +19,8 @@ cd /path/to/kafka
 - In a sperate terminal, start the GridDB Kafka Connector
 ```
 cd /path/to/kafka
+export KAFKA_HOME=/path/to/kafka
+export PATH=$KAFKA_HOME/bin
 export CLASSPATH=:/usr/share/java/gridstore.jar:/usr/share/java/gridstore-jdbc.jar
 ./bin/connect-standalone.sh config/connect-standalone.properties config/griddb-sink.properties config/griddb-source.properties
 ```

@@ -87,7 +87,7 @@ def calc():
 
 
 def produce(usagemodel=None):
-    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    now = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
     global temp
     global scfm
     global tstat
